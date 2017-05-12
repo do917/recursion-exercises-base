@@ -4,8 +4,6 @@ const _ = require('underscore'); // the real one! :)
 // const stringify = JSON.stringify;
 // But you don't. So you're going to write it from scratch...
 
-
-
 const stringify = function(obj) {
   const type = typeof obj;
 
@@ -38,8 +36,17 @@ const stringify = function(obj) {
     return '[' + stringifiedArray + ']'; 
   }
 
-  
+  if (typeof obj === 'object') {
+    let stringifiedObject = '';
 
+    _.each(obj, (value, key) => {
+      stringifiedObject += stringify(key);
+      stringifiedObject += ':';
+      stringifiedObject += stringify(value);
+    });
+
+    return '{' + stringifiedObject + '}';
+  }
 };
 
 module.exports = {
