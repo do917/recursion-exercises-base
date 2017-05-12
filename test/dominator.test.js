@@ -10,6 +10,7 @@ describe('dominator', () => {
     const fixturePath = './test/fixtures/sample-page.html';
     const html = fs.readFileSync(fixturePath, 'utf8');
     document.documentElement.innerHTML = html;
+    // console.log('sample page', html);
   });
 
   describe('getElementById()', () => {
@@ -40,5 +41,4 @@ describe('dominator', () => {
       expect(els.length).toEqual(4);
     });
   });
-
 });

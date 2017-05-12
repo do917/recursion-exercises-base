@@ -22,11 +22,13 @@ describe('dom-util', () => {
 
       const sizeCounts = {};
       visitAllNodes(broccoli, (node) => {
+        
         if (sizeCounts[node.size]) {
           sizeCounts[node.size]++;
         } else {
           sizeCounts[node.size] = 1;
         }
+
       });
 
       expect(sizeCounts).toEqual({
@@ -47,5 +49,4 @@ describe('dom-util', () => {
       expect(nodes.length).toEqual(39);
     });
   });
-
 });
